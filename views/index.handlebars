@@ -1,5 +1,5 @@
 <h1 class="text-center mb-3">{{title}}</h1>
-<form action="/api/members" method="POST" class="mb-4">
+<form action="/api/add_task" method="POST" class="mb-7">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" class="form-control">
@@ -10,11 +10,19 @@
   </div>
   <input type="submit" value="Add Member" class="btn btn-primary btn-block">
 </form>
+
+<br><br>
+
 <h4>Members</h4>
 <ul class="list-group">
   {{#each members}}
   <li class="list-group-item">{{this.name}}: {{this.email}}</li>
+
+  <form action="/api/delete_task/{{this.id}}" method="DELETE" class="mb-13">
+    <input type="submit" value="Delete Above Member" class="btn btn-primary btn-block">
+  </form>
+
   {{/each}}
 </ul>
 
-<a href="/api/members" class="btn btn-light mt-4">Visit API</a>
+<a href="/api/view" class="btn btn-light mt-4">View All Members</a>

@@ -1,0 +1,13 @@
+<h4>Post Deleting Member</h4>
+<ul class="list-group">
+    <br><br>
+    <h6>SURE??</h6>
+    {{#each details}}
+    <li class="list-group-item">{{this.name}}: {{this.email}}</li>
+    <form action="/api/delete_task/{{this.id}}" method="DELETE" class="mb-13">
+        <input type="submit" value="Delete Above Member" class="btn btn-primary btn-block">
+    </form>
+    {{/each}}
+</ul>
+
+<a href="/" class="btn btn-light mt-5">Get Me Home</a>

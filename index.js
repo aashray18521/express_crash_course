@@ -30,6 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Members API Routes
 app.use('/api/members', require('./routes/api/members'));
+app.use('/api/view', require('./routes/api/view'));
+app.use('/api/add_task', require('./routes/api/add_task'));
+app.use('/api/delete_task/', require('./routes/api/delete_task'));
 
 const PORT = process.env.PORT || 5000;
 
