@@ -12,6 +12,9 @@ app.set('view engine', 'handlebars');
 
 // Get Single Member
 router.get('/:id', (req, res) => {
+    myInt = req.params.id;
+    console.log("In GET");
+    console.log(myInt);
     const found = members.some(member => member.id === parseInt(req.params.id));
 
     if (found) {
@@ -24,16 +27,19 @@ router.get('/:id', (req, res) => {
 
 // Delete Member
 router.delete('/:id', (req, res) => {
+    myInt = req.params.id;
+    console.log(myInt);
     const found = members.some(member => member.id === parseInt(req.params.id));
 
     if (found) {
-        res.status(200).render('delete', {
+        res.render('delete', {
             msg: 'Member deleted',
             members: members.filter(member => member.id !== parseInt(req.params.id))
         });
     } else {
         res.status(404).json({ msg: `No member with the id of ${req.params.id}` });
     }
+    res.redirect('/');
 });
 
 module.exports = router;
